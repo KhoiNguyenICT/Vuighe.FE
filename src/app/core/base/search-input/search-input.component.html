@@ -1,0 +1,5 @@
+<input type="search" (keyup)="onKeyUp($event)" class="form-control form-control-sm rounded mw-100 m-0" placeholder="Search..."
+  [(ngModel)]="query">
+<span class="search__icon-cancel" (click)="emptySearch()" [class.visible]="query">
+  <i class="far fa-times"></i>
+</span>

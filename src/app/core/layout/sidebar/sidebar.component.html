@@ -1,0 +1,188 @@
+<div class="layout-w">
+  <div class="menu-w selected-menu-color-dark menu-activated-on-hover color-scheme-dark color-style-default sub-menu-color-dark menu-position-side menu-side-left menu-layout-compact sub-menu-style-flyout"
+    style="min-height: 100vh;">
+    <div class="logo-w">
+      <a class="logo" href="index.html">
+        <div class="logo-element"></div>
+        <div class="logo-label">
+          Clean Admin
+        </div>
+      </a>
+    </div>
+    <app-user-nav></app-user-nav>
+    <app-sidebar-search></app-sidebar-search>
+    <ul class="main-menu">
+      <li>
+        <a routerLink="/">
+          <div class="icon-w">
+            <i class="fal fa-tachometer-alt"></i>
+          </div>
+          Dashboard
+        </a>
+      </li>
+      <li class="has-sub-menu">
+        <a class="pointer">
+          <div class="icon-w">
+            <i class="fal fa-graduation-cap"></i>
+          </div>
+          <span>Training courses</span>
+        </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-header">Training courses</div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li>
+                <a>Search for sessions</a>
+              </li>
+              <li>
+                <a>Search for a training course</a>
+              </li>
+              <li>
+                <a>Create a course</a>
+              </li>
+              <li>
+                <a routerLink="/courses/email-templates">Email templates</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="has-sub-menu">
+        <a class="pointer">
+          <div class="icon-w">
+            <i class="fal fa-book"></i>
+          </div>
+          <span>Resources</span>
+        </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-header">Learning resources</div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li>
+                <a>Find learning resource</a>
+              </li>
+              <li>
+                <a>Add a learning resource</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="has-sub-menu">
+        <a class="pointer">
+          <div class="icon-w">
+            <i class="fal fa-users"></i>
+          </div>
+          <span>Learners</span>
+        </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-header">Learners</div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li>
+                <a>Search for a learner</a>
+              </li>
+              <li>
+                <a>Create a
+                  learner</a>
+              </li>
+              <li>
+                <a>Manage Learner groups</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="has-sub-menu">
+        <a class="pointer">
+          <div class="icon-w">
+            <i class="fal fa-users"></i>
+          </div>
+          <span>Administrators</span>
+        </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-header">Administrators</div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li>
+                <a>Search for an administrator</a>
+              </li>
+              <li>
+                <a>Create an administrator</a>
+              </li>
+              <li>
+                <a>Manage permission schemes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="has-sub-menu">
+        <a class="pointer" disabled>
+          <div class="icon-w">
+            <i class="fal fa-chart-line"></i>
+          </div>
+          <span>Analytics</span>
+        </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-header">Analytics</div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li>
+                <a>Overview</a>
+              </li>
+              <li>
+                <a>Student reports</a>
+              </li>
+              <li>
+                <a>Course reports</a>
+              </li>
+              <li>
+                <a>Learning resource reports</a>
+              </li>
+
+              <li>
+                <a>Gamification Events</a>
+              </li>
+              <li>
+                <a>Gamification Dashboard</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="has-sub-menu">
+        <a class="pointer">
+          <div class="icon-w">
+            <i class="fal fa-cogs"></i>
+          </div>
+          <span>Settings</span>
+        </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-header">Settings</div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li>
+                <a>Manage locations</a>
+              </li>
+              <li>
+                <a>Manage tags</a>
+              </li>
+              <li>
+                <a routerLink="/settings/gamification">Gamification</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="content-w">
+    <app-breadcrumb></app-breadcrumb>
+    <div class="content-i">
+      <div class="content-box">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+:host {
+  .card {
+    background-color: #fafafa;
+    padding: 30px 0;
+  }
+
+  &.no-bg {
+    .card {
+      background-color: transparent;
+    }
+  }
+
+  &.compact {
+    .card {
+      padding: 20px 0;
+
+      .icon {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.no-results-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #aaa;
+}
+
+.icon {
+  font-size: 36px;
+}

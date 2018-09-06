@@ -1,0 +1,22 @@
+<div class="controls-above-table" *ngIf="!noTopMenu">
+  <div class="d-flex">
+    <div>
+      <app-quantity [quantity]="params?.quantity" (onChanged)="onQuantityChanged($event)"></app-quantity>
+    </div>
+    <ng-content select="select"></ng-content>
+    <div class="ml-auto">
+      <app-search-input [query]="params?.query" (onUpdatedQuery)="onSearch($event)"></app-search-input>
+    </div>
+  </div>
+</div>
+<div class="table-responsive relative">
+  <app-loading *ngIf="isLoading"></app-loading>
+  <app-no-results *ngIf="!items?.length && !isLoading" [message]="noResultsMessage" [icon]="noResultsIconClass"></app-no-results>
+  <table *ngIf="items?.length" width="100%" class="table table-striped table-lightborder">
+    <ng-content select="thead"></ng-content>
+    <ng-content select="tbody"></ng-content>
+  </table>
+</div>
+<app-pagination (change)="onPageChange($event)" [useLink]="false" [total]="total" [quantity]="params?.quantity" [page]="params?.page"
+  [length]="items?.length" [totalPages]="totalPages">
+</app-pagination>

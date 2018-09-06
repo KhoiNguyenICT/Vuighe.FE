@@ -1,0 +1,24 @@
+.ks-sidebar-wrapper {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-menu ul.sub-menu li.route-active a {
+  font-weight: 700;
+  color: #555;
+}
+
+.logo-w {
+  justify-content: center;
+
+  .logo-label {
+    margin-left: 0;
+
+    img {
+      width: 120px;
+    }
+  }
+}
+

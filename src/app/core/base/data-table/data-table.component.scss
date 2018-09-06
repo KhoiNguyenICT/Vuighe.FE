@@ -1,0 +1,13 @@
+:host {
+  &.small {
+    & /deep/ {
+      table tbody td {
+        font-size: 0.78rem;
+      }
+
+      .controls-below-table {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

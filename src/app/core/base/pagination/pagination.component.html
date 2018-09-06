@@ -1,0 +1,29 @@
+<div class="controls-below-table mt-3" *ngIf="total">
+  <div class="table-records-info">Displaying start - end of total records'</div>
+  <div class="table-records-pages">
+    <ul *ngIf="useLink">
+      <li>
+        <a *ngIf="page !== 1" (click)="change.emit({ page: page - 1 })" [routerLink]="[root, getLink(page - 1) ]">Previous</a>
+        <a *ngIf="page === 1" class="disabled">Previous</a>
+      </li>
+      <li *ngFor="let p of pages">
+        <a (click)="change.emit({ page: p })" [routerLink]="[root, getLink(p)]" [class.current]="page === p">{{ p }}</a>
+      </li>
+      <li>
+        <a *ngIf="page !== totalPages" (click)="change.emit({ page: page + 1 })" [routerLink]="[root, getLink(page + 1)]">Next</a>
+        <a *ngIf="page === totalPages" class="disabled">Next</a>
+      </li>
+    </ul>
+    <ul *ngIf="!useLink">
+      <li>
+        <a (click)="navigate(page - 1)" [class.disabled]="page === 1">Previous</a>
+      </li>
+      <li *ngFor="let p of pages">
+        <a (click)="navigate(p)" [class.current]="page === p">{{ p }}</a>
+      </li>
+      <li>
+        <a (click)="navigate(page + 1)" [class.disabled]="page === totalPages">Next</a>
+      </li>
+    </ul>
+  </div>
+</div>

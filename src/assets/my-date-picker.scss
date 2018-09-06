@@ -1,0 +1,119 @@
+.mydp * {
+  font-family: inherit !important;
+}
+
+.mydp .icon-mydpleft:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f104" !important
+}
+
+.mydp .icon-mydpright:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f105" !important
+}
+
+.mydp .icon-mydpup:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f106" !important
+}
+
+.mydp .icon-mydpdown:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f107" !important
+}
+
+.mydp .icon-mydptoday:before {
+  font-family: "Font Awesome 5 Pro";
+  color: #888;
+  content: "\f274" !important
+}
+
+.mydp .icon-mydpcalendar:before {
+  font-family: "Font Awesome 5 Pro";
+  color: #888;
+  content: "\f073" !important
+}
+
+.mydp .icon-mydpremove:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f00d" !important
+}
+
+.mydp .daycell,
+.mydp .monthcell,
+.mydp .weekdaytitle,
+.mydp .yearcell {
+  padding: 0 !important
+}
+
+.mydp .weekdaytitle {
+  background-color: #fff !important;
+  padding: 10px 0 !important
+}
+
+.mydp .header,
+.mydp .headerbtn,
+.mydp .headerlabelbtn,
+.mydp .yearchangebtn,
+.mydp .currmonth,
+.mydp .headerbtncell {
+  background-color: #fff !important
+}
+
+.mydp .tablesingleday,
+.mydp .tablesinglemonth,
+.mydp .tablesingleyear {
+  border-radius: 4px;
+  &:hover {
+    background-color: #ddd !important;
+    .header,
+    .headerbtn,
+    .headerlabelbtn,
+    .yearchangebtn,
+    .currmonth,
+    .headerbtncell {
+      background-color: #ddd !important;
+    }
+  }
+  &.selectedday .datevalue,
+  &.selectedmonth .monthvalue,
+  &.selectedyear .yearvalue {
+    border-radius: 4px;
+    background-color: #007bff !important;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mydp .markcurrday,
+.mydp .markcurrmonth,
+.mydp .markcurryear {
+  text-decoration: none !important
+}
+
+.mydp .header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05)
+}
+
+.mydp, .mydp .headertodaybtn {
+  border: 2px solid #dde2ec !important;
+  outline: none;
+  transition: ease-in-out 150ms;
+}
+
+.mydp:focus-within, .mydp:active {
+  border-color: #047bf8 !important;
+}
+
+.mydp .selection {
+  &::placeholder {
+    color: rgba(0,0,0,0.3);
+  }
+}
+
+.mydp .mydpicon {
+  color: #999;
+}

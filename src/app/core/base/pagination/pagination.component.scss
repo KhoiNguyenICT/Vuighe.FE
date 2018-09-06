@@ -1,0 +1,16 @@
+.table-records-pages {
+  a {
+    cursor: pointer;
+
+    &.disabled {
+      color: #888;
+      cursor: not-allowed;
+      text-decoration: none;
+    }
+
+    &.current {
+      color: #047bf8;
+      font-weight: 600;
+    }
+  }
+}

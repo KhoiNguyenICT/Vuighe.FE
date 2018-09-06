@@ -1,0 +1,407 @@
+@import '~assets/light-admin/css/main';
+@import '~assets/light-admin/bower_components/select2/src/scss/core';
+@import '~ngx-toastr/toastr.css';
+@import '~assets/toast.scss';
+@import '~assets/image-cropper.scss';
+@import '~assets/treeview.scss';
+@import '~assets/treebox.scss';
+@import '~assets/my-date-picker.scss';
+@import '~assets/libs/fontawesome/css/all.css';
+
+.form-control {
+  font-weight: 400;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.logged-user-w .avatar-w {
+  border: 1px solid rgba(50, 50, 50, 0.3);
+}
+
+.relative {
+  position: relative;
+}
+
+.auth-box-w form .form-group .pre-icon {
+  top: 35px;
+  bottom: auto;
+}
+
+.all-wrapper.with-pattern {
+  background-image: none;
+}
+
+select,
+select.form-control {
+  padding-top: 2px;
+}
+
+button {
+  outline: none !important;
+}
+
+.property-single .property-info-w .property-section .property-section-body {
+  font-weight: 400;
+}
+
+.form-buttons-w {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.table.table-sm td {
+  font-size: 0.78rem;
+  padding: 8px;
+}
+
+/*
+====================
+/other
+====================
+*/
+.cell-date {
+  width: 190px;
+}
+
+.cell-tool {
+  width: 75px;
+  text-align: right;
+}
+
+.btn {
+  cursor: pointer;
+
+  &.no-shadow {
+    box-shadow: none !important;
+  }
+}
+
+.btn-info {
+  color: #fff !important;
+}
+
+.btn-plus {
+  display: block;
+  white-space: normal !important;
+  word-wrap: break-word;
+  width: 100%;
+  text-align: justify;
+  border-color: transparent;
+  background: transparent !important;
+  cursor: pointer;
+}
+
+.tool {
+  cursor: pointer;
+  display: block;
+}
+
+.required:after {
+  color: #ff0000;
+  content: " *";
+}
+
+.element-wrapper .element-actions {
+  margin-top: 0.2rem;
+}
+
+.label-info {
+  font-weight: 500;
+}
+
+.badge {
+  font-weight: 400;
+  font-size: 0.7rem;
+}
+
+.text-small {
+  font-size: $small-font-size;
+}
+
+.ghost-input {
+  position: fixed;
+  display: none;
+  opacity: 0;
+  z-index: -1000;
+  bottom: 0;
+  right: 0;
+}
+
+.buttons-w {
+  padding-top: 1rem;
+  border-top: 1px solid #a0ceff;
+}
+
+.flex-grow {
+  flex: 1;
+}
+
+.file-box {
+  height: 35px;
+  width: 100%;
+  border: 1px dashed #456CF9;
+  display: flex;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: .3;
+  }
+}
+
+.selected-file-text {
+  font-style: italic;
+  font-size: .85rem;
+  opacity: .8;
+}
+
+.step-triggers .step-trigger {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.step-triggers .step-trigger.active {
+  color: #3E4B5B !important;
+}
+
+.redactor-box.redactor-styles-on {
+  border: solid 2px #dde2ec !important;
+  border-radius: 4px !important;
+}
+
+.redactor-focus.redactor-styles-on,
+.redactor-focus:focus.redactor-styles-on {
+  border-color: #047bf8 !important;
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0.1rem;
+}
+
+.redactor-styles {
+  font-family: "Prompt", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+button.close {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+button {
+
+  &[disabled],
+  &:disabled {
+    cursor: not-allowed !important;
+  }
+}
+
+.btn .os-icon+span,
+.all-wrapper .fc-button .os-icon+span {
+  margin-left: 6px;
+}
+
+.btn {
+
+  .far,
+  .fal,
+  .fas,
+  .fa {
+    &+span {
+      margin-left: 6px;
+    }
+  }
+}
+
+.btn.btn-sm {
+
+  .far,
+  .fal,
+  .fas,
+  .fa {
+    &+span {
+      margin-left: 0.2rem;
+    }
+  }
+}
+
+.btn.btn-sm .os-icon+span,
+.btn-group-sm>.btn .os-icon+span,
+.all-wrapper .btn-group-sm>.fc-button .os-icon+span,
+.all-wrapper .btn-sm.fc-button .os-icon+span {
+  margin-left: 0.2rem;
+}
+
+#toast-container {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.btn-badge {
+  padding: 0.1rem 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 0.2rem;
+  cursor: default !important;
+}
+
+.modal-xl {
+  min-width: 1100px;
+}
+
+.resource-desc {
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.text-linkedin {
+  color: #0077B5 !important;
+}
+
+.user-card {
+  line-height: 1.2;
+}
+
+.value-pair .label {
+  color: #666;
+}
+
+.value-pair {
+  &.resource-value-pair {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 6px;
+    min-height: 28px;
+
+    &+.value-pair {
+      margin-left: 0;
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    .label,
+    .value {
+      font-size: 0.68rem;
+    }
+  }
+}
+
+.ghost {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+}
+
+.el-buttons-list.full-width .btn {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.el-tablo .value {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.el-tablo .label {
+  color: #666;
+}
+
+.badge-list {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .badge {
+    font-size: 0.6rem;
+  }
+}
+
+.information-details {
+  .form-group {
+    margin-bottom: 25px;
+
+    h6 {
+      color: #444;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.form-control.form-control-w80 {
+  width: 80px;
+}
+
+.form-control.form-control-w150 {
+  width: 150px;
+}
+
+.form-control.form-control-w250 {
+  width: 250px;
+}
+
+.blended-course-nav {
+  .nav.upper {
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  .nav-tabs .nav-item {
+    margin-right: 1.5rem;
+
+    a {
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.3) !important;
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.8) !important;
+      }
+
+      &.active {
+        color: #495057 !important;
+      }
+    }
+  }
+}
+
+.centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prevent-access {
+  pointer-events: none;
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  overflow-y: hidden
+}
+
+.cropper-container .cropper img {
+  background-image: url(assets/imgs/transparent.png);
+  background-repeat: repeat;
+}
+
+.badge-image {
+  width: 60px;
+  height: 60px;
+}
+
+.card-text {
+  word-break: break-word;
+}

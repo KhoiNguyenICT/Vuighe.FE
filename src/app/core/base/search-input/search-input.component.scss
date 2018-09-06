@@ -1,0 +1,19 @@
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+.search__input {
+  padding-right: 30px;
+}
+
+.search__icon-cancel {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}

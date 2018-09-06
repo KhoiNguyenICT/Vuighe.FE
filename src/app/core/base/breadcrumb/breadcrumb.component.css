@@ -1,0 +1,5 @@
+.breadcrumb {
+  height: 54px;
+  display: flex;
+  align-items: center;
+}

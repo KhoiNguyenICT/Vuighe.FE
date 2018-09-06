@@ -1,0 +1,7 @@
+<div class="d-flex align-items-center">
+  <div style="white-space: nowrap">Show</div>
+  <select class="form-control form-control-sm rounded mx-1" [ngModel]="quantity" (ngModelChange)="onQuantityChanged($event)">
+    <option *ngFor="let v of options" [value]="v">{{ v }}</option>
+  </select>
+  entries
+</div>
