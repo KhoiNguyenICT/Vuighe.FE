@@ -1,4 +1,4 @@
-export const AppDataStorageKey = 'Cuda_Storage'
+export const AppDataStorageKey = 'Vuighe_Storage'
 
 export enum SortDirection {
     ascending = 0,
