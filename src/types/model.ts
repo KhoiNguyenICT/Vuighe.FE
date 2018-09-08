@@ -1,4 +1,4 @@
-import { SortDirection } from './enums'
+import { SortDirection, FileType } from './enums'
 
 export interface UserData {
     fullName: string
@@ -22,6 +22,31 @@ export interface QueryParams {
     sortBy: string
     sortDirective: SortDirection
     query: string
+}
+
+export interface ViewModel {
+    id: string
+    createdDate: Date
+    updatedDate: Date
+}
+
+export interface BaseCollection {
+    title: string
+    description: string
+    files?: BaseFile[]
+}
+
+export interface BaseFile extends ViewModel {
+    title: string
+    description: string
+    copyright: string
+    keywords: string
+    transcript: string
+    screenDescription: string
+    url: string
+    sourceFile: Asset
+    collections?: BaseCollection[]
+    fileType: FileType
 }
 
 export interface Asset {

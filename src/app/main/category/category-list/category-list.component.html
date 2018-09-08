@@ -1,9 +1,9 @@
 <app-page-title [PageTitle]="PageTitle">
   <thead>
-    <button class="btn btn-sm btn-primary">
+    <a [routerLink]="['/category/category-create']" class="btn btn-sm btn-primary text-white">
       <i class="os-icon os-icon-ui-22"></i>
       <span>Create a category</span>
-    </button>
+    </a>
   </thead>
 </app-page-title>
 <div class="element-box">
@@ -28,7 +28,7 @@
           <button class="btn btn-sm btn-link">
             <i class="far fa-pencil"></i>
           </button>
-          <button class="btn btn-sm btn-link">
+          <button class="btn btn-sm btn-link" (click)="onDelete(item.id)">
             <i class="fal fa-trash-alt"></i>
           </button>
         </td>

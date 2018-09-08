@@ -14,9 +14,6 @@ export class AppInterceptor implements HttpInterceptor {
                 'Authorization', `bearer ${this.sessionData.access_token}`
             )
         })
-
-        console.log(this.sessionData)
-
         return next.handle(newRequest)
     }
 }

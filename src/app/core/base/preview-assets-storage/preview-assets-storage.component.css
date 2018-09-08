@@ -1,0 +1,52 @@
+#modal-preview-assets-storage {
+  height: 90vh;
+}
+
+.card-header {
+  font-size: 15px;
+  color: #444;
+  border-bottom: 0;
+  padding: 0 10px;
+  background-color: #e5e5e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-height: 40px;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 3px;
+}
+
+.card-item {
+  padding: 15px;
+  display: block;
+  -webkit-box-shadow: 0 1px 0 0 #eee;
+  box-shadow: 0 1px 0 0 #eee;
+  background-color: white;
+  font-weight: 400;
+}
+
+.card {
+  background-color: #e5e5e6;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  border: 0;
+  height: 100%;
+}
+
+.card .card-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 8px 10px;
+  padding: 20px;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
+}

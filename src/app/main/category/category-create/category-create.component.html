@@ -1,10 +1,34 @@
-<app-page-title [PageTitle]="PageTitle">
-    <thead>
-        <button class="btn btn-sm btn-primary">Create a category</button>
-    </thead>
-</app-page-title>
-<div class="element-content">
-    <div class="row">
-
+<div class="row">
+  <div class="col-xl-6 col-lg-8 col-md-10 mx-auto">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <h5 class="form-header">Create a category</h5>
+          <div class="form-desc"></div>
+          <div class="form-group">
+            <label for="category-name">Category name</label>
+            <input type="text" id="category-name" class="form-control" placeholder="Enter category name" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="category-description">Description</label>
+            <input type="text" id="category-description" class="form-control" placeholder="Enter description" formControlName="description">
+          </div>
+          <div class="form-group position-relative">
+            <label for="category-thumbnail">Thumbnail</label>
+            <input type="text" id="category-thumbnail" class="form-control position-absolute" placeholder="Select thumbnail" (click)="previewAssetsStorage.open(fileType.image)">
+            <button class="btn btn-sm btn-danger position-absolute" id="remove-thumbnail-category">Remove</button>
+          </div>
+          <div class="form-group mt-5" id="preview-category-thumbnail-image" *ngIf="isHidePreviewCategoryThumbnailImage">
+                <img src="../../../../assets/imgs/empty-image.png">
+            </div>
+          <div class="form-buttons-w text-right" id="group-button-action">
+              <button class="btn btn-secondary" type="button">Cancel</button>
+              <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
+
+<app-preview-assets-storage #previewAssetsStorage (selected)="onSelectAsset($event)"></app-preview-assets-storage>

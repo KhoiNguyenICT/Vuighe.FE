@@ -1,3 +1,4 @@
+import { ModalModule } from 'ngx-bootstrap'
 import { AuthService } from './services/auth.service'
 import { BreadcrumbComponent } from './base/breadcrumb/breadcrumb.component'
 import { CommonModule } from '@angular/common'
@@ -16,14 +17,17 @@ import { UserNavComponent } from './layout/user-nav/user-nav.component'
 import { LoadingComponent } from './base/loading/loading.component'
 import { NoResultsComponent } from './base/no-results/no-results.component'
 import { PaginationComponent } from './base/pagination/pagination.component'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CategoryService } from './services/category.service'
+import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/preview-assets-storage.component'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    ReactiveFormsModule,
+    RouterModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     UserNavComponent,
@@ -39,7 +43,8 @@ import { CategoryService } from './services/category.service'
     QuantityComponent,
     SearchInputComponent,
     LoadingComponent,
-    NoResultsComponent
+    NoResultsComponent,
+    PreviewAssetsStorageComponent
   ],
   exports: [
     UserNavComponent,
@@ -49,7 +54,9 @@ import { CategoryService } from './services/category.service'
     BreadcrumbComponent,
     NoResultsComponent,
     PageTitleComponent,
-    DataTableComponent
+    DataTableComponent,
+    ModalModule,
+    PreviewAssetsStorageComponent
   ],
   providers: [
     AuthService,
