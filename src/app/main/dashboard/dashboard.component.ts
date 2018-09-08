@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr'
 })
 export class DashboardComponent implements OnInit {
 
+  PageTitle = 'Dashboard'
+
   constructor(
     private toastr: ToastrService
   ) { }

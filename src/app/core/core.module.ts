@@ -17,6 +17,7 @@ import { LoadingComponent } from './base/loading/loading.component'
 import { NoResultsComponent } from './base/no-results/no-results.component'
 import { PaginationComponent } from './base/pagination/pagination.component'
 import { FormsModule } from '@angular/forms'
+import { CategoryService } from './services/category.service'
 
 @NgModule({
   imports: [
@@ -46,11 +47,14 @@ import { FormsModule } from '@angular/forms'
     SidebarComponent,
     SidebarSearchComponent,
     BreadcrumbComponent,
-    NoResultsComponent
+    NoResultsComponent,
+    PageTitleComponent,
+    DataTableComponent
   ],
   providers: [
     AuthService,
-    SessionService
+    SessionService,
+    CategoryService
   ]
 })
 export class CoreModule { }

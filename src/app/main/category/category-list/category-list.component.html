@@ -1,0 +1,38 @@
+<app-page-title [PageTitle]="PageTitle">
+  <thead>
+    <button class="btn btn-sm btn-primary">
+      <i class="os-icon os-icon-ui-22"></i>
+      <span>Create a category</span>
+    </button>
+  </thead>
+</app-page-title>
+<div class="element-box">
+  <app-data-table class="small" #dataTable noResultsIconClass="fal fa-rocket" noResultsMessage="No sesssions available"
+    [noTopMenu]="false">
+    <thead>
+      <tr>
+        <th class="w-5">#</th>
+        <th>Name</th>
+        <th class="text-center w-15">Created Date</th>
+        <th class="text-center w-15">Updated Date</th>
+        <th class="text-center w-10">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataTable.items let index = index">
+        <td class="w-5">{{index+1}}</td>
+        <td>{{item.title}}</td>
+        <td class="text-center w-15">{{item.createdDate | date:'medium'}}</td>
+        <td class="text-center w-15">{{item.updatedDate | date:'medium'}}</td>
+        <td class="text-center w-10">
+          <button class="btn btn-sm btn-link">
+            <i class="far fa-pencil"></i>
+          </button>
+          <button class="btn btn-sm btn-link">
+            <i class="fal fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </app-data-table>
+</div>

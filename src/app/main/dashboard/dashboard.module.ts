@@ -2,6 +2,7 @@ import { DashboardComponent } from './dashboard.component'
 import { Routes, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { CoreModule } from 'app/core/core.module';
 
 const route: Routes = [
   {
@@ -13,7 +14,8 @@ const route: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(route)
+    RouterModule.forChild(route),
+    CoreModule
   ],
   declarations: [
     DashboardComponent

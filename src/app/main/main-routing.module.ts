@@ -12,6 +12,10 @@ const routes: Routes = [
             {
                 path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule'
+            },
+            {
+                path: 'category',
+                loadChildren: './category/category.module#CategoryModule'
             }
         ]
     }
