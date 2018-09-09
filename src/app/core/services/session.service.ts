@@ -12,6 +12,7 @@ export class SessionService {
     localStorageKey: string
 
     constructor() {
+        this.localStorageKey = AppDataStorageKey
         this.init()
     }
 

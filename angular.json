@@ -30,7 +30,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/libs/jquery.js"
+              "src/assets/libs/jquery.js",
+              "src/assets/libs/redactor/redactor.js"
             ]
           },
           "configurations": {

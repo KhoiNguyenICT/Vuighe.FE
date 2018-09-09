@@ -35,7 +35,7 @@
                 <div class="sub-menu-i">
                   <ul class="sub-menu">
                     <li>
-                      <a [routerLink]="['/category/category-list']">Search for categories</a>
+                      <a [routerLink]="['/category/category-list']">Search a categories</a>
                     </li>
                     <li>
                       <a [routerLink]="['/category/category-create']">Create a category</a>
@@ -45,128 +45,63 @@
               </div>
             </li>
             <li class="has-sub-menu">
-              <a class="pointer">
+              <a class="pointer" [routerLink]="['/film/film-list']">
                 <div class="icon-w">
                   <i class="fal fa-book"></i>
                 </div>
-                <span>Resources</span>
+                <span>Films</span>
               </a>
               <div class="sub-menu-w">
-                <div class="sub-menu-header">Learning resources</div>
+                <div class="sub-menu-header">Films</div>
                 <div class="sub-menu-i">
                   <ul class="sub-menu">
                     <li>
-                      <a>Find learning resource</a>
+                      <a [routerLink]="['/film/film-list']">Search a film</a>
                     </li>
                     <li>
-                      <a>Add a learning resource</a>
+                      <a [routerLink]="['/film/film-create']">Create a film</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </li>
             <li class="has-sub-menu">
-              <a class="pointer">
+              <a class="pointer" [routerLink]="['/episode/episode-list']">
                 <div class="icon-w">
-                  <i class="fal fa-users"></i>
+                  <i class="fal fa-book"></i>
                 </div>
-                <span>Learners</span>
+                <span>Episodes</span>
               </a>
               <div class="sub-menu-w">
-                <div class="sub-menu-header">Learners</div>
+                <div class="sub-menu-header">Episodes</div>
                 <div class="sub-menu-i">
                   <ul class="sub-menu">
                     <li>
-                      <a>Search for a learner</a>
+                      <a [routerLink]="['/episode/episode-list']">Search an episode</a>
                     </li>
                     <li>
-                      <a>Create a
-                        learner</a>
-                    </li>
-                    <li>
-                      <a>Manage Learner groups</a>
+                      <a [routerLink]="['/episode/episode-create']">Create an episode</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </li>
             <li class="has-sub-menu">
-              <a class="pointer">
+              <a class="pointer" [routerLink]="['/post/post-list']">
                 <div class="icon-w">
-                  <i class="fal fa-users"></i>
+                  <i class="fal fa-book"></i>
                 </div>
-                <span>Administrators</span>
+                <span>News</span>
               </a>
               <div class="sub-menu-w">
-                <div class="sub-menu-header">Administrators</div>
+                <div class="sub-menu-header">News</div>
                 <div class="sub-menu-i">
                   <ul class="sub-menu">
                     <li>
-                      <a>Search for an administrator</a>
+                      <a [routerLink]="['/film/film-list']">Search a post</a>
                     </li>
                     <li>
-                      <a>Create an administrator</a>
-                    </li>
-                    <li>
-                      <a>Manage permission schemes</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="has-sub-menu">
-              <a class="pointer" disabled>
-                <div class="icon-w">
-                  <i class="fal fa-chart-line"></i>
-                </div>
-                <span>Analytics</span>
-              </a>
-              <div class="sub-menu-w">
-                <div class="sub-menu-header">Analytics</div>
-                <div class="sub-menu-i">
-                  <ul class="sub-menu">
-                    <li>
-                      <a>Overview</a>
-                    </li>
-                    <li>
-                      <a>Student reports</a>
-                    </li>
-                    <li>
-                      <a>Course reports</a>
-                    </li>
-                    <li>
-                      <a>Learning resource reports</a>
-                    </li>
-
-                    <li>
-                      <a>Gamification Events</a>
-                    </li>
-                    <li>
-                      <a>Gamification Dashboard</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="has-sub-menu">
-              <a class="pointer">
-                <div class="icon-w">
-                  <i class="fal fa-cogs"></i>
-                </div>
-                <span>Settings</span>
-              </a>
-              <div class="sub-menu-w">
-                <div class="sub-menu-header">Settings</div>
-                <div class="sub-menu-i">
-                  <ul class="sub-menu">
-                    <li>
-                      <a>Manage locations</a>
-                    </li>
-                    <li>
-                      <a>Manage tags</a>
-                    </li>
-                    <li>
-                      <a routerLink="/settings/gamification">Gamification</a>
+                      <a [routerLink]="['/film/film-create']">Create a post</a>
                     </li>
                   </ul>
                 </div>

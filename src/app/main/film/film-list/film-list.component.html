@@ -1,0 +1,47 @@
+<app-page-title [PageTitle]="PageTitle">
+  <thead>
+    <a [routerLink]="['/film/film-create']" class="btn btn-sm btn-primary text-white">
+      <i class="os-icon os-icon-ui-22"></i>
+      <span>Create a film</span>
+    </a>
+  </thead>
+</app-page-title>
+<div class="element-box">
+  <app-data-table class="small" #dataTable noResultsIconClass="fal fa-rocket" noResultsMessage="No sesssions available"
+    [noTopMenu]="false">
+    <thead>
+      <tr>
+        <th class="w-5">#</th>
+        <th>Title</th>
+        <th class="text-center w-10">Like count</th>
+        <th class="text-center w-10">Follow count</th>
+        <th class="text-center w-10">View count</th>
+        <th class="text-center w-15">Created Date</th>
+        <th class="text-center w-15">Updated Date</th>
+        <th class="text-center w-10">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataTable.items let index = index">
+        <td class="w-5">{{index+1}}</td>
+        <td>{{item.title}}</td>
+        <td class="text-center w-10">{{item.likeCount}}</td>
+        <td class="text-center w-10">{{item.followCount}}</td>
+        <td class="text-center w-10">{{item.viewCount}}</td>
+        <td class="text-center w-15">{{item.createdDate | date:'medium'}}</td>
+        <td class="text-center w-15">{{item.updatedDate | date:'medium'}}</td>
+        <td class="text-center w-10">
+          <button class="btn btn-sm btn-link">
+            <i class="far fa-pencil"></i>
+          </button>
+          <button class="btn btn-sm btn-link" (click)="onDelete(item.id)">
+            <i class="fal fa-trash-alt"></i>
+          </button>
+          <button class="btn btn-sm btn-link" (click)="onDelete(item.id)">
+            <i class="fal fa-arrow-alt-to-bottom"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </app-data-table>
+</div>

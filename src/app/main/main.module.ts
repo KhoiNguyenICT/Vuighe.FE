@@ -1,3 +1,5 @@
+import { EpisodeModule } from './episode/episode.module'
+import { FilmModule } from './film/film.module'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { CategoryModule } from './category/category.module'
 import { NgModule } from '@angular/core'
@@ -14,6 +16,8 @@ import { CoreModule } from '../core/core.module'
     MainRoutingModule,
     CoreModule,
     CategoryModule,
+    FilmModule,
+    EpisodeModule
   ],
   declarations: [MainComponent]
 })

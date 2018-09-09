@@ -5,7 +5,7 @@ import { Observable } from 'rxjs'
 import { EntityList, Category } from 'types'
 import { CategoryService } from 'app/core/services/category.service'
 import { ToastrService } from 'ngx-toastr'
-import { DataTableComponent } from 'app/core/base/data-table/data-table.component';
+import { DataTableComponent } from 'app/core/base/data-table/data-table.component'
 
 @Component({
   selector: 'app-category-list',

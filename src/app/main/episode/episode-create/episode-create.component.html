@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-xl-6 col-lg-8 col-md-10 mx-auto">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <h5 class="form-header">Create an episode</h5>
+          <div class="form-desc"></div>
+          <div class="form-group">
+            <label for="episode-name">Episode name</label>
+            <input type="text" id="episode-name" class="form-control" placeholder="Enter episode name" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="video-source">Video source</label>
+            <input type="text" id="video-source" class="form-control" placeholder="Enter video source" formControlName="videoSource">
+          </div>
+          <div class="form-group">
+            <label for="episode-description">Description</label>
+            <div redactor id="episode-description" [redactorOptions]="{ minHeight: '100px', maxHeight: '100px' }"
+              formControlName="description"></div>
+          </div>
+          <div class="form-group">
+            <label for="episode-content">Content</label>
+            <div redactor id="episode-content" [redactorOptions]="{ minHeight: '300px', maxHeight: '300px' }"
+              formControlName="content"></div>
+          </div>
+          <div class="form-group position-relative">
+            <label for="episode-thumbnail">Thumbnail</label>
+            <input type="text" id="episode-thumbnail" class="form-control position-absolute" placeholder="Select thumbnail"
+              (click)="previewAssetsStorage.open(fileType.image)">
+            <button class="btn btn-sm btn-danger position-absolute" id="remove-thumbnail-episode">Remove</button>
+          </div>
+          <div class="form-group mt-5" id="preview-episode-thumbnail-image" *ngIf="isHidePreviewEpisodeThumbnailImage">
+            <img src="../../../../assets/imgs/empty-image.png">
+          </div>
+          <div class="form-buttons-w text-right" id="group-button-action">
+            <button class="btn btn-secondary" type="button">Cancel</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-preview-assets-storage #previewAssetsStorage (selected)="onSelectAsset($event)"></app-preview-assets-storage>

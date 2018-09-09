@@ -16,6 +16,14 @@ const routes: Routes = [
             {
                 path: 'category',
                 loadChildren: './category/category.module#CategoryModule'
+            },
+            {
+                path: 'film',
+                loadChildren: './film/film.module#FilmModule'
+            },
+            {
+                path: 'episode',
+                loadChildren: './episode/episode.module#EpisodeModule'
             }
         ]
     }

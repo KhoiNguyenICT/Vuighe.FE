@@ -1,3 +1,6 @@
+import { EpisodeService } from 'app/core/services/episode.service';
+import { AssetService } from 'app/core/services/asset.service'
+import { FilmService } from './services/film.service'
 import { ModalModule } from 'ngx-bootstrap'
 import { AuthService } from './services/auth.service'
 import { BreadcrumbComponent } from './base/breadcrumb/breadcrumb.component'
@@ -20,6 +23,7 @@ import { PaginationComponent } from './base/pagination/pagination.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CategoryService } from './services/category.service'
 import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/preview-assets-storage.component'
+import { RedactorModule } from './base/redactor/redactor.module'
 
 @NgModule({
   imports: [
@@ -27,7 +31,8 @@ import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/pre
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RedactorModule
   ],
   declarations: [
     UserNavComponent,
@@ -44,7 +49,7 @@ import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/pre
     SearchInputComponent,
     LoadingComponent,
     NoResultsComponent,
-    PreviewAssetsStorageComponent
+    PreviewAssetsStorageComponent,
   ],
   exports: [
     UserNavComponent,
@@ -56,12 +61,16 @@ import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/pre
     PageTitleComponent,
     DataTableComponent,
     ModalModule,
-    PreviewAssetsStorageComponent
+    PreviewAssetsStorageComponent,
+    RedactorModule
   ],
   providers: [
     AuthService,
     SessionService,
-    CategoryService
+    CategoryService,
+    FilmService,
+    AssetService,
+    EpisodeService
   ]
 })
 export class CoreModule { }
