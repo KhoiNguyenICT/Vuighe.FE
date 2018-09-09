@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common'
 import { FilmComponent } from './film.component'
 import { FilmCreateComponent } from './film-create/film-create.component'
 import { FilmListComponent } from './film-list/film-list.component'
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { FilmSetCategoryComponent } from './film-set-category/film-set-category.component'
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms'
   declarations: [
     FilmComponent,
     FilmCreateComponent,
-    FilmListComponent
+    FilmListComponent,
+    FilmSetCategoryComponent
   ]
 })
 export class FilmModule { }

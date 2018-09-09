@@ -37,7 +37,7 @@
           <button class="btn btn-sm btn-link" (click)="onDelete(item.id)">
             <i class="fal fa-trash-alt"></i>
           </button>
-          <button class="btn btn-sm btn-link" (click)="onDelete(item.id)">
+          <button class="btn btn-sm btn-link" (click)="filmSetCategory.open()">
             <i class="fal fa-arrow-alt-to-bottom"></i>
           </button>
         </td>
@@ -45,3 +45,5 @@
     </tbody>
   </app-data-table>
 </div>
+
+<app-film-set-category #filmSetCategory></app-film-set-category>
