@@ -1,6 +1,6 @@
 import { BaseApiService } from './base-api.service'
 import { Injectable, Injector } from '@angular/core'
-import { Film } from 'types';
+import { Film, EntityList, Category } from 'types'
 
 @Injectable({
   providedIn: 'root'

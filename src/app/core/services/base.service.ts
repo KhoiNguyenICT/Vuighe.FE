@@ -1,6 +1,7 @@
 import { Injectable, Injector } from '@angular/core'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { ApiConfig } from './api-config'
+import { IHttpClientRequestOptions } from 'types';
 
 @Injectable({
   providedIn: 'root'
@@ -60,5 +61,12 @@ export class BaseService {
     url = this.createUrl(url)
     params = params ? this.createParams(params) : undefined
     return this.httpClient.delete(url, { params: params })
+  }
+
+  protected request(method: string, url: string, params?: any, options?: IHttpClientRequestOptions) {
+    url = this.createUrl(url)
+    params = params ? this.createParams(params) : undefined
+    options.params = params
+    return this.httpClient.request(method, url, options)
   }
 }

@@ -36,5 +36,9 @@ export class EpisodeListComponent extends EmbeddedDataTableAccessorService imple
     return this.episodeService.list(merge(params))
   }
 
+  onDelete(id: string) {
+
+  }
+
 
 }

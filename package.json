@@ -27,6 +27,8 @@
     "ngx-progressbar": "^2.1.1",
     "ngx-toastr": "^9.0.2",
     "rxjs": "^6.0.0",
+    "uuid": "^3.3.2",
+    "uuidv4": "^1.0.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

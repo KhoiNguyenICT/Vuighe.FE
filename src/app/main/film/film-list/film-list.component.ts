@@ -1,4 +1,4 @@
-import { EmbeddedDataTableAccessorService } from 'app/core/base/data-table/data-table-accessor.service';
+import { EmbeddedDataTableAccessorService } from 'app/core/base/data-table/data-table-accessor.service'
 import { merge } from 'utils'
 import { Component, OnInit, ViewChild, forwardRef } from '@angular/core'
 import { FilmService } from 'app/core/services/film.service'
@@ -20,6 +20,7 @@ export class FilmListComponent extends EmbeddedDataTableAccessorService implemen
 
   PageTitle = 'Films'
   @ViewChild('dataTable') dataTable: DataTableComponent
+  showModalChangeCategoryOfFilm: boolean
 
   constructor(
     private filmService: FilmService,

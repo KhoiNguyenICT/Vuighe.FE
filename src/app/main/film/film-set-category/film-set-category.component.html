@@ -9,25 +9,28 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-data-table class="small" #dataTableFilmSetCategory noResultsIconClass="fal fa-rocket" noResultsMessage="No sesssions available"
-          [noTopMenu]="false">
+        <app-data-table #datatableCategories noResultsIconClass="fal fa-rocket" noResultsMessage="No sesssions available" [noTopMenu]="false">
           <thead>
             <tr>
-              <th class="w-5">#</th>
-              <th>Name</th>
-              <th class="text-center w-10">Action</th>
+              <th class="text-center">#</th>
+              <th>Category name</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of dataTableFilmSetCategory.items let index = index">
-              <td class="w-5">{{index+1}}</td>
+            <tr *ngFor="let item of datatableCategories.items; let index = index">
+              <td class="text-center">{{index+1}}</td>
               <td>{{item.title}}</td>
-              <td class="text-center w-10">
-                <input type="checkbox">
+              <td class="text-center">
+                <input type="checkbox" [id]="item.id" (change)="setCategory(item.id)">
               </td>
             </tr>
           </tbody>
         </app-data-table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" (click)="onCancel()">Cancel</button>
+        <button class="btn btn-primary" (click)="onSubmit()">Save</button>
       </div>
     </div>
   </div>
