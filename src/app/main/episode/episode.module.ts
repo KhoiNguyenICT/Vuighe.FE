@@ -5,7 +5,8 @@ import { EpisodeComponent } from './episode.component'
 import { EpisodeCreateComponent } from './episode-create/episode-create.component'
 import { EpisodeListComponent } from './episode-list/episode-list.component'
 import { EpisodeRoutingModule } from './episode-routing.module'
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
+import { EpisodeChangeFilmComponent } from './episode-change-film/episode-change-film.component'
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { NgModule } from '@angular/core'
   declarations: [
     EpisodeComponent,
     EpisodeCreateComponent,
-    EpisodeListComponent
+    EpisodeListComponent,
+    EpisodeChangeFilmComponent
   ]
 })
 export class EpisodeModule { }

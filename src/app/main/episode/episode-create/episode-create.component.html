@@ -10,6 +10,16 @@
             <input type="text" id="episode-name" class="form-control" placeholder="Enter episode name" formControlName="title">
           </div>
           <div class="form-group">
+            <label for="film-name">Film name</label>
+            <div *ngIf="!filmIdSelected" class="form-group w-100 m-0">
+              <input type="text" id="film-name" class="form-control" placeholder="Select film for episode" readonly (click)="episodeChangeFilm.open()">
+            </div>
+            <div *ngIf="filmIdSelected" class="form-group row w-100 m-0">
+              <input type="text" id="film-name" class="form-control col-10" [value]="filmNameSelected" readonly>
+              <button type="button" class="col-2 btn btn-danger" id="btnRemoveFilmName" (click)="onRemoveFilmSelected()"><i class="fal fa-trash-alt"></i> Remove</button>
+            </div>
+          </div>
+          <div class="form-group">
             <label for="video-source">Video source</label>
             <input type="text" id="video-source" class="form-control" placeholder="Enter video source" formControlName="videoSource">
           </div>
@@ -43,3 +53,4 @@
 </div>
 
 <app-preview-assets-storage #previewAssetsStorage (selected)="onSelectAsset($event)"></app-preview-assets-storage>
+<app-episode-change-film #episodeChangeFilm (selectedFilmFormEpisode)="selectFilmForEpisode($event)"></app-episode-change-film>

@@ -6,3 +6,13 @@
 #group-button-action {
   margin-top: 60px;
 }
+
+#film-name {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#btnRemoveFilmName {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

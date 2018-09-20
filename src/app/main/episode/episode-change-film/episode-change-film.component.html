@@ -1,0 +1,34 @@
+<div class="modal fade" bsModal #episodeChangeFilm="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-l">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="dialog-static-name" class="modal-title pull-left">Change categories of film</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="episodeChangeFilm.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-data-table class="small" #dataTableEpisodeChangeFilm noResultsIconClass="fal fa-rocket" noResultsMessage="No sesssions available"
+          [noTopMenu]="false">
+          <thead>
+            <tr>
+              <th class="w-5">#</th>
+              <th>Name</th>
+              <th class="text-center w-10">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of dataTableEpisodeChangeFilm.items; let index = index">
+              <td class="w-5">{{index+1}}</td>
+              <td>{{item.title}}</td>
+              <td class="text-center w-10">
+                <button class="btn btn-sm btn-primary" (click)="onSelectedFilmForEpisode(item.id)">Select</button>
+              </td>
+            </tr>
+          </tbody>
+        </app-data-table>
+      </div>
+    </div>
+  </div>
+</div>

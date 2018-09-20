@@ -20,9 +20,7 @@ export class BaseApiService<T> extends BaseService {
     }
 
     getOne(id: string) {
-        return this.get('/:id', {
-            id
-        }) as Observable<T>
+        return this.get(id) as Observable<T>
     }
 
     create(data: any) {
