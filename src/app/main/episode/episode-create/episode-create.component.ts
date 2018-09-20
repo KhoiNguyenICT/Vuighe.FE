@@ -71,7 +71,6 @@ export class EpisodeCreateComponent implements OnInit {
       content: undefined,
       videoSource: undefined,
       filmId: undefined,
-      film: undefined
     })
   }
 
