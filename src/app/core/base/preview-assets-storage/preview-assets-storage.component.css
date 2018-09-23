@@ -26,10 +26,10 @@
 .card-item {
   padding: 15px;
   display: block;
-  -webkit-box-shadow: 0 1px 0 0 #eee;
-  box-shadow: 0 1px 0 0 #eee;
   background-color: white;
   font-weight: 400;
+  border-bottom: 1px solid;
+  border-bottom-color: #efefef;
 }
 
 .card {

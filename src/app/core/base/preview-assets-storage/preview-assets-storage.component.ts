@@ -20,7 +20,6 @@ export class PreviewAssetsStorageComponent implements OnInit {
 
   open(fileType?: FileType) {
     this.modal.show()
-    console.log(fileType)
   }
 
 }

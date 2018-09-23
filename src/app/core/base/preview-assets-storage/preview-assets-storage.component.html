@@ -1,14 +1,13 @@
-<div class="modal fade" bsModal #mediaPickerModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
-  aria-labelledby="dialog-static-name">
+<div class="modal fade" bsModal #mediaPickerModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
   <div class="modal-dialog modal-xl">
     <div class="modal-content" id="modal-preview-assets-storage">
       <div class="modal-header">
-        <h4 id="dialog-static-name" class="modal-title pull-left">Choose your assets</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="mediaPickerModal.hide()">
-          <span aria-hidden="true">&times;</span>
+        <h4 class="modal-title pull-left" id="dialog-static-name">Choose your assets</h4>
+        <button class="close pull-right" type="button" (click)="mediaPickerModal.hide()">
+          <span>×</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="d-flex flex-column h-100 modal-body">
         <div class="d-flex min-heigh-min-content mb-2">
           <div class="btn-group mr-2">
             <button class="btn btn-primary btn-sm">
@@ -16,13 +15,21 @@
               <span>Upload</span>
             </button>
           </div>
-          <app-search-input class="w-100"></app-search-input>
+          <app-search-input class="w-100">
+            <input class="form-control form-control-sm rounded mw-100 m-0" placeholder="Search..." type="search">
+            <span class="search__icon-cancel">
+              <i class="far fa-times"></i>
+            </span>
+          </app-search-input>
         </div>
-        <div class="row">
+        <div class="row flex-1">
           <div class="col-md-3">
-            <div class="card h-100">
+            <div class="card d-flex flex-column h-100">
               <div class="card-header">Asset Type</div>
-              <div class="card-body p-0">
+              <div class="card-body p-0" style="flex: 1;">
+                <div class="card-item box-shadow cursor-pointer">
+                  <i class="fal fa-layer-group"></i>
+                  <span>Audio</span></div>
                 <div class="card-item box-shadow cursor-pointer">
                   <i class="fal fa-layer-group"></i>
                   <span>Audio</span>
@@ -33,12 +40,7 @@
                 </div>
                 <div class="card-item box-shadow cursor-pointer">
                   <i class="fal fa-layer-group"></i>
-                  <span>Audio</span>
-                </div>
-                <div class="card-item box-shadow cursor-pointer">
-                  <i class="fal fa-layer-group"></i>
-                  <span>Audio</span>
-                </div>
+                  <span>Audio</span></div>
               </div>
             </div>
           </div>
@@ -52,7 +54,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary min-width-150">Choose</button>
-        <button class="btn btn-white">Cancel</button>
+        <button class="btn btn-white" (click)="mediaPickerModal.hide()">Cancel</button>
       </div>
     </div>
   </div>
