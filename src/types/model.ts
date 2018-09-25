@@ -53,28 +53,17 @@ export interface ViewModel {
 export interface BaseCollection {
     title: string
     description: string
-    files?: BaseFile[]
-}
-
-export interface BaseFile extends ViewModel {
-    title: string
-    description: string
-    copyright: string
-    keywords: string
-    transcript: string
-    screenDescription: string
-    url: string
-    sourceFile: Asset
-    collections?: BaseCollection[]
-    fileType: FileType
+    files?: Asset[]
 }
 
 export interface Asset {
+    id: string
     fileName: string
     fileExtension: string
     fileSize: number
     filePath: string
-    fileUrl: string
+    collectionId: string
+    collection: Collection
 }
 
 export interface Category {
@@ -152,4 +141,9 @@ export interface FilmEpisode {
     episodeId: string
     film: Film
     episode: Episode
+}
+
+export interface Collection {
+    id: string
+    title: string
 }

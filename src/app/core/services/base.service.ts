@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { ApiConfig } from './api-config'
-import { IHttpClientRequestOptions } from 'types';
+import { IHttpClientRequestOptions } from 'types'
 
 @Injectable({
   providedIn: 'root'

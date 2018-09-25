@@ -1,4 +1,5 @@
-import { EpisodeService } from 'app/core/services/episode.service';
+import { CollectionService } from 'app/core/services/collection.service'
+import { EpisodeService } from 'app/core/services/episode.service'
 import { AssetService } from 'app/core/services/asset.service'
 import { FilmService } from './services/film.service'
 import { ModalModule } from 'ngx-bootstrap'
@@ -70,7 +71,8 @@ import { RedactorModule } from './base/redactor/redactor.module'
     CategoryService,
     FilmService,
     AssetService,
-    EpisodeService
+    EpisodeService,
+    CollectionService
   ]
 })
 export class CoreModule { }

@@ -6,8 +6,9 @@ export enum SortDirection {
 }
 
 export enum FileType {
-    undefined,
-    audio,
+    library,
     video,
-    image
+    image,
+    audio,
+    undefined
 }

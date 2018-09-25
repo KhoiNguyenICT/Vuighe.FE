@@ -1,5 +1,5 @@
 <div class="modal fade" bsModal #mediaPickerModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-xxl">
     <div class="modal-content" id="modal-preview-assets-storage">
       <div class="modal-header">
         <h4 class="modal-title pull-left" id="dialog-static-name">Choose your assets</h4>
@@ -10,10 +10,11 @@
       <div class="d-flex flex-column h-100 modal-body">
         <div class="d-flex min-heigh-min-content mb-2">
           <div class="btn-group mr-2">
-            <button class="btn btn-primary btn-sm">
+            <button class="btn btn-primary btn-sm" (click)="inputFile.click()">
               <i class="fal fa-plus"></i>
               <span>Upload</span>
             </button>
+            <input type="file" hidden #inputFile (change)="uploadFile(inputFile.files)">
           </div>
           <app-search-input class="w-100">
             <input class="form-control form-control-sm rounded mw-100 m-0" placeholder="Search..." type="search">
@@ -25,36 +26,44 @@
         <div class="row flex-1">
           <div class="col-md-3">
             <div class="card d-flex flex-column h-100">
-              <div class="card-header">Asset Type</div>
+              <div class="card-header">Asset Type
+                <button class="btn btn-primary btn-sm">
+                  <i class="fal fa-plus text-white"></i>
+                  <span>Add</span>
+                </button>
+              </div>
               <div class="card-body p-0" style="flex: 1;">
-                <div class="card-item box-shadow cursor-pointer">
-                  <i class="fal fa-layer-group"></i>
-                  <span>Audio</span></div>
-                <div class="card-item box-shadow cursor-pointer">
-                  <i class="fal fa-layer-group"></i>
-                  <span>Audio</span>
+                <app-no-results *ngIf="!collections?.length && !isLoading" [message]="noCollectionsResultMessage"
+                  [icon]="noResultsIconClass"></app-no-results>
+                <div class="align-items-center box-shadow card-item cursor-pointer d-flex" *ngFor="let collection of collections; let index = index"
+                  [ngClass]="selectedCollectionIndex == index ? 'bg-primary font-weight-bold text-white' : ''" (click)="onSelectCollection(collection.id, index)">
+                  <i class="fal fa-layer-group mr-2" [ngClass]="selectedCollectionIndex == index ? 'bg-primary font-weight-bold text-white' : ''"></i>
+                  <span>{{ collection.title }}</span>
                 </div>
-                <div class="card-item box-shadow cursor-pointer">
-                  <i class="fal fa-layer-group"></i>
-                  <span>Audio</span>
-                </div>
-                <div class="card-item box-shadow cursor-pointer">
-                  <i class="fal fa-layer-group"></i>
-                  <span>Audio</span></div>
               </div>
             </div>
           </div>
           <div class="col-md-9 pl-md-0">
-            <div class="card h-100">
-              <div class="card-header">Library</div>
-              <div class="card-body p-0"></div>
+            <div class="card d-flex flex-column h-100">
+              <div class="card-header">Library
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary btn-sm"><i class="fal fa-check mr-2"></i>Choose</button>
+                  <button type="button" class="btn btn-danger btn-sm"><i class="fal fa-trash-alt mr-2"></i>Delete</button>
+                </div>
+              </div>
+              <div class="card-body p-0" style="flex: 1;">
+                <app-loading *ngIf="isLoading"></app-loading>
+                <app-no-results *ngIf="!assets?.length && !isLoading" [message]="noAssetsResultMessage"
+                  [icon]="noResultsIconClass"></app-no-results>
+                <div class="align-items-center box-shadow card-item cursor-pointer d-flex" *ngFor="let asset of assets">
+                  <img src="{{asset.filePath}}?w=100" [alt]="asset.fileName" class="mr-2">
+                  <span>{{asset.fileName}}</span>
+                  <input type="checkbox" class="ml-auto" [id]="asset.id">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary min-width-150">Choose</button>
-        <button class="btn btn-white" (click)="mediaPickerModal.hide()">Cancel</button>
       </div>
     </div>
   </div>

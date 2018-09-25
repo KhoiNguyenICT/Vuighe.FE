@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr'
 import { CategoryService } from 'app/core/services/category.service'
 import { Component, OnInit } from '@angular/core'
-import { BaseFile, FileType } from 'types'
+import { FileType, Asset } from 'types'
 import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
@@ -37,7 +37,7 @@ export class CategoryCreateComponent implements OnInit {
     this.categoryService.create(this.form.value).subscribe(success, error)
   }
 
-  onSelectAsset(asset: BaseFile) {
+  onSelectAsset(asset: Asset) {
 
   }
 

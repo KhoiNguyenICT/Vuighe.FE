@@ -1,7 +1,6 @@
 import { BaseApiService } from './base-api.service'
 import { Injectable, Injector } from '@angular/core'
-import { Observable, of } from 'rxjs'
-import { Asset } from 'types'
+import { HttpEventType } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -13,35 +12,15 @@ export class AssetService extends BaseApiService<any> {
     this.setBaseUrl('/api/asset')
   }
 
-  uploadAndExtractImagesFromPowerPoint(data: FormData) {
-    return this.post('/uploadAndExtractImagesFromPowerPoint', undefined, data)
+  upload(file, collectionId) {
+    // tslint:disable-next-line:no-debugger
+    debugger
+    const formData = new FormData()
+    formData.append('file', file)
+    return this.post(`/upload/${collectionId}`, undefined, formData)
   }
 
-  uploadAndConvertPowerPointToImages(data: FormData) {
-    return this.post('/uploadAndConvertPowerPointToImages', undefined, data)
-  }
-
-  getUploadPublicUrl() {
-    return this.baseUrl + '/uploadPublic'
-  }
-
-  uploadFiles(files: FormData): Observable<Array<Asset>> {
-    return this.httpClient.post<Array<Asset>>(this.baseUrl + '/uploadFiles', files)
-  }
-
-  upload(asset: any) {
-    if (asset && asset.url && asset.url instanceof Blob) {
-      return this.uploadFile(asset.url, asset.fileName)
-    } else if (asset && asset instanceof Blob) {
-      return this.uploadFile(asset, 'fileUpload')
-    } else {
-      return of(asset)
-    }
-  }
-
-  private uploadFile(file: Blob | File, fileName: string) {
-    const form = new FormData()
-    form.append('file', file, fileName)
-    return this.httpClient.post(this.baseUrl + '/uploadFile', form)
+  getAssetsByCollection(collectionId: string) {
+    return this.get(`collection/${collectionId}`)
   }
 }

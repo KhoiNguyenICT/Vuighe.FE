@@ -48,7 +48,7 @@ export class RedactorComponent implements ControlValueAccessor, OnInit {
     ].filter(it => !!it)
     let config = {
       plugins,
-      imageUpload: this.assetApiService.getUploadPublicUrl(),
+      // imageUpload: this.assetApiService.getUploadPublicUrl(),
       accessToken: this.sessionService.getToken(),
     } as any
     config = Object.assign({},
