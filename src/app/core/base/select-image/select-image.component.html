@@ -1,0 +1,9 @@
+<div class="align-items-center d-flex justify-content-center select-image w-100" *ngIf="!image">
+  <label>Choose a image ...</label>
+</div>
+<div *ngIf="image" class="position-relative">
+  <img src="{{image.filePath}}" [alt]="image.fileName" class="w-100">
+  <button type="button" class="btn btn-danger position-absolute remove-image" (click)="onRemoveImage()">
+    <i class="fal fa-trash-alt"></i> Remove
+  </button>
+</div>

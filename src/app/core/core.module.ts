@@ -6,7 +6,7 @@ import { ModalModule } from 'ngx-bootstrap'
 import { AuthService } from './services/auth.service'
 import { BreadcrumbComponent } from './base/breadcrumb/breadcrumb.component'
 import { CommonModule } from '@angular/common'
-import { ConfirmationComponent } from './base/confirmation/confirmation.component'
+import { ConfirmationComponent, ConfirmationBodyDirective } from './base/confirmation/confirmation.component'
 import { DataTableComponent } from './base/data-table/data-table.component'
 import { HeaderComponent } from './layout/header/header.component'
 import { NgModule } from '@angular/core'
@@ -25,6 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CategoryService } from './services/category.service'
 import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/preview-assets-storage.component'
 import { RedactorModule } from './base/redactor/redactor.module'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll'
+import { SelectImageComponent } from './base/select-image/select-image.component'
 
 @NgModule({
   imports: [
@@ -33,7 +35,8 @@ import { RedactorModule } from './base/redactor/redactor.module'
     ReactiveFormsModule,
     RouterModule,
     ModalModule.forRoot(),
-    RedactorModule
+    RedactorModule,
+    InfiniteScrollModule
   ],
   declarations: [
     UserNavComponent,
@@ -43,7 +46,7 @@ import { RedactorModule } from './base/redactor/redactor.module'
     BreadcrumbComponent,
     ConfirmationComponent,
     DataTableComponent,
-    ConfirmationComponent,
+    ConfirmationBodyDirective,
     PageTitleComponent,
     PaginationComponent,
     QuantityComponent,
@@ -51,6 +54,7 @@ import { RedactorModule } from './base/redactor/redactor.module'
     LoadingComponent,
     NoResultsComponent,
     PreviewAssetsStorageComponent,
+    SelectImageComponent,
   ],
   exports: [
     UserNavComponent,
@@ -63,7 +67,11 @@ import { RedactorModule } from './base/redactor/redactor.module'
     DataTableComponent,
     ModalModule,
     PreviewAssetsStorageComponent,
-    RedactorModule
+    RedactorModule,
+    ConfirmationBodyDirective,
+    ConfirmationComponent,
+    InfiniteScrollModule,
+    SelectImageComponent
   ],
   providers: [
     AuthService,

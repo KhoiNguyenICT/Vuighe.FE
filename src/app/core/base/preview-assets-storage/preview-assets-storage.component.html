@@ -1,3 +1,4 @@
+<app-loading *ngIf="isLoading"></app-loading>
 <div class="modal fade" bsModal #mediaPickerModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1">
   <div class="modal-dialog modal-xxl">
     <div class="modal-content" id="modal-preview-assets-storage">
@@ -14,8 +15,8 @@
               <i class="fal fa-plus"></i>
               <span>Upload</span>
             </button>
-            <input type="file" hidden #inputFile (change)="uploadFile(inputFile.files)">
           </div>
+          <input type="file" hidden #inputFile (change)="uploadFile(inputFile.files)">
           <app-search-input class="w-100">
             <input class="form-control form-control-sm rounded mw-100 m-0" placeholder="Search..." type="search">
             <span class="search__icon-cancel">
@@ -27,38 +28,75 @@
           <div class="col-md-3">
             <div class="card d-flex flex-column h-100">
               <div class="card-header">Asset Type
-                <button class="btn btn-primary btn-sm">
-                  <i class="fal fa-plus text-white"></i>
-                  <span>Add</span>
-                </button>
+                <div class="btn-group">
+                  <button class="btn btn-primary btn-sm" (click)="onCreateCollection()">
+                    <i class="fal fa-plus text-white"></i>
+                    <span>Add</span>
+                  </button>
+                  <button class="btn btn-warning btn-sm" (click)="onEditColelction()">
+                    <i class="fal fa-edit text-black"></i>
+                    <span>Edit</span>
+                  </button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteConfirmation.open()">
+                    <i class="fal fa-trash text-white"></i>
+                    <span>Delete</span>
+                  </button>
+                </div>
               </div>
               <div class="card-body p-0" style="flex: 1;">
                 <app-no-results *ngIf="!collections?.length && !isLoading" [message]="noCollectionsResultMessage"
                   [icon]="noResultsIconClass"></app-no-results>
+
+                <!-- FormCreateCollection -->
+                <form *ngIf="formCollection && isCreateCollection" [formGroup]="formCollection" (ngSubmit)="onSubmitCreateCollection()"
+                  class="align-items-center box-shadow card-item d-flex position-relative">
+                  <input type="text" class="form-control float-left" placeholder="Enter this new collection ..." id="txtNewCollection"
+                    formControlName="title">
+                  <button class="float-left btn btn-link btn-primary position-absolute mr-5" id="btn-save-collection"
+                    type="submit">
+                    <i class="fal fa-save"></i>
+                  </button>
+                  <button class="float-left btn btn-link btn-danger position-absolute r-0" id="btn-save-collection"
+                    (click)="onCancelCreateCollection()">
+                    <i class="fal fa-trash-alt"></i>
+                  </button>
+                </form>
+                <!-- FormCreateCollection -->
+                <!-- FormEditCollection -->
+                <form *ngIf="formCollection && isEditCollection" [formGroup]="formCollection" (ngSubmit)="onSubmitEditCollection()"
+                  class="align-items-center box-shadow card-item d-flex position-relative">
+                  <input type="text" class="form-control float-left" id="txtNewCollection" formControlName="title">
+                  <button class="float-left btn btn-link btn-primary position-absolute mr-5" id="btn-save-collection"
+                    type="submit">
+                    <i class="fal fa-save"></i>
+                  </button>
+                  <button class="float-left btn btn-link btn-danger position-absolute r-0" id="btn-save-collection"
+                    (click)="onCancelUpdateCollection()">
+                    <i class="fal fa-trash-alt"></i>
+                  </button>
+                </form>
+                <!-- FormEditCollection -->
                 <div class="align-items-center box-shadow card-item cursor-pointer d-flex" *ngFor="let collection of collections; let index = index"
                   [ngClass]="selectedCollectionIndex == index ? 'bg-primary font-weight-bold text-white' : ''" (click)="onSelectCollection(collection.id, index)">
                   <i class="fal fa-layer-group mr-2" [ngClass]="selectedCollectionIndex == index ? 'bg-primary font-weight-bold text-white' : ''"></i>
-                  <span>{{ collection.title }}</span>
+                  <span>{{ collection.title }} <small>({{ collection.totalAsset }})</small></span>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-9 pl-md-0">
             <div class="card d-flex flex-column h-100">
-              <div class="card-header">Library
+              <div class="card-header">{{ collection.title }}
                 <div class="btn-group">
-                  <button type="button" class="btn btn-primary btn-sm"><i class="fal fa-check mr-2"></i>Choose</button>
                   <button type="button" class="btn btn-danger btn-sm"><i class="fal fa-trash-alt mr-2"></i>Delete</button>
                 </div>
               </div>
-              <div class="card-body p-0" style="flex: 1;">
-                <app-loading *ngIf="isLoading"></app-loading>
-                <app-no-results *ngIf="!assets?.length && !isLoading" [message]="noAssetsResultMessage"
-                  [icon]="noResultsIconClass"></app-no-results>
-                <div class="align-items-center box-shadow card-item cursor-pointer d-flex" *ngFor="let asset of assets">
+              <div class="card-body p-0" style="flex: 1;" infiniteScroll [scrollWindow]="false" (scrolled)="onScrollAsset()">
+                <app-no-results *ngIf="!assets?.length && !isLoading" [message]="noAssetsResultMessage" [icon]="noResultsIconClass"></app-no-results>
+                <div class="align-items-center box-shadow card-item d-flex cursor-pointer" *ngFor="let asset of assets" (dblclick)="onSelectAsset(asset)">
                   <img src="{{asset.filePath}}?w=100" [alt]="asset.fileName" class="mr-2">
                   <span>{{asset.fileName}}</span>
-                  <input type="checkbox" class="ml-auto" [id]="asset.id">
+                  <input type="checkbox" class="ml-auto" (change)="onSelectAsset(asset.id)">
                 </div>
               </div>
             </div>
@@ -68,3 +106,10 @@
     </div>
   </div>
 </div>
+
+<app-confirmation #deleteConfirmation modalTitle="Delete Collection" (confirm)="onDeleteCollection()">
+  <div class="modal-content-holder" i18n>
+    Do you want delete collection
+    <b>{{ collection.title }}</b>?
+  </div>
+</app-confirmation>

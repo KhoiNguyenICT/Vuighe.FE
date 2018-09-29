@@ -1,7 +1,7 @@
 import { EpisodeService } from 'app/core/services/episode.service'
 import { FormGroup, FormBuilder } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
-import { FileType, BaseFile } from 'types'
+import { FileType, Asset } from 'types'
 import { ToastrService } from 'ngx-toastr'
 import { FilmService } from 'app/core/services/film.service'
 import { Router } from '@angular/router'
@@ -18,6 +18,7 @@ export class EpisodeCreateComponent implements OnInit {
   fileType: typeof FileType = FileType
   filmIdSelected: string
   filmNameSelected: string
+  thumbnail: Asset
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,9 +33,10 @@ export class EpisodeCreateComponent implements OnInit {
   }
 
   onSubmit() {
+    this.form.patchValue({ 'thumbnailId': this.thumbnail.id })
     const success = res => {
-      this.toastr.success('Episode saved successfully')
       this.router.navigate(['/episode/episode-list'])
+      this.toastr.success('Episode saved successfully')
     }
     const error = res => {
       this.toastr.error(res.message)
@@ -60,8 +62,8 @@ export class EpisodeCreateComponent implements OnInit {
     this.filmIdSelected = undefined
   }
 
-  onSelectAsset(asset: BaseFile) {
-
+  onSelectAsset(asset: Asset) {
+    this.thumbnail = asset
   }
 
   private buildForm() {
@@ -71,6 +73,7 @@ export class EpisodeCreateComponent implements OnInit {
       content: undefined,
       videoSource: undefined,
       filmId: undefined,
+      thumbnailId: undefined
     })
   }
 

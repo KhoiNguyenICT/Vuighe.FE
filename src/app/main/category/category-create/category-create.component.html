@@ -15,16 +15,16 @@
             <input type="text" id="category-description" class="form-control" placeholder="Enter description"
               formControlName="description">
           </div>
-          <div class="form-group position-relative">
+          <div class="form-group">
             <label for="category-thumbnail">Thumbnail</label>
-            <input type="text" id="category-thumbnail" class="form-control position-absolute" placeholder="Select thumbnail"
-              (click)="previewAssetsStorage.open(fileType.image)">
-            <button class="btn btn-sm btn-danger position-absolute" id="remove-thumbnail-category">Remove</button>
+            <div (click)="previewAssetsStorage.open(fileType.image)">
+              <app-select-image [image]="thumbnail"></app-select-image>
+            </div>
           </div>
           <div class="form-group mt-5" id="preview-category-thumbnail-image" *ngIf="isHidePreviewCategoryThumbnailImage">
             <img src="../../../../assets/imgs/empty-image.png">
           </div>
-          <div class="form-buttons-w text-right" id="group-button-action">
+          <div class="form-buttons-w text-right">
             <button class="btn btn-secondary" type="button">Cancel</button>
             <button class="btn btn-primary" type="submit">Save</button>
           </div>

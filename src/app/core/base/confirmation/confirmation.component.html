@@ -1,3 +1,28 @@
-<p>
-  confirmation works!
-</p>
+<div bsModal #confirmationModal="bs-modal" class="modal fade" [config]="{ backdrop: 'static' }" (onHidden)="clear()">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ modalTitle }}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="onDismiss($event)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container #bodyRef></ng-container>
+        <ng-container *ngIf="message; else customMessage">
+          <p [innerHTML]="message"></p>
+        </ng-container>
+        <ng-template #customMessage>
+          <ng-container>
+            <ng-content select=".modal-content-holder"></ng-content>
+          </ng-container>
+        </ng-template>
+      </div>
+      <div class="modal-footer">
+        <button *ngIf="showCancel" type="button" class="btn btn-secondary" (click)="onDismiss($event)" i18n>Cancel</button>
+        <button type="button" class="btn btn-primary min-width-150" (click)="onConfirm($event)" i18n>Ok</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="middleBackdrop !== undefined" class="temp-backdrop"></div>
+</div>

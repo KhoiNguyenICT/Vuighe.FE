@@ -146,4 +146,5 @@ export interface FilmEpisode {
 export interface Collection {
     id: string
     title: string
+    totalAsset: number
 }

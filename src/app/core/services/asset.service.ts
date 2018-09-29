@@ -1,6 +1,6 @@
+import { BaseIdConfiguration } from 'types'
 import { BaseApiService } from './base-api.service'
 import { Injectable, Injector } from '@angular/core'
-import { HttpEventType } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,14 @@ export class AssetService extends BaseApiService<any> {
     return this.post(`/upload/${collectionId}`, undefined, formData)
   }
 
-  getAssetsByCollection(collectionId: string) {
-    return this.get(`collection/${collectionId}`)
+  getAssetsByCollection(collectionId: string, params: any) {
+    if (collectionId === undefined) {
+      collectionId = BaseIdConfiguration.collectionLibraryId
+    }
+    return this.get(`collection/${collectionId}`, params)
+  }
+
+  getUploadPublicUrl() {
+    return this.baseUrl + '/upload123'
   }
 }

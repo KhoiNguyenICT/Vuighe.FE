@@ -27,8 +27,8 @@ export class BaseApiService<T> extends BaseService {
         return this.post('/', undefined, data) as Observable<T>
     }
 
-    update(data: any) {
-        return this.put(`/:id`, {
+    update(id: string, data: any) {
+        return this.put(`${id}`, {
             id: data.id
         }, data)
     }

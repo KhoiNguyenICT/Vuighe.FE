@@ -1,0 +1,19 @@
+.select-image {
+    height: 240px;
+    border-style: dashed;
+    background-color: #F7F8FA;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.select-image > label {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.remove-image {
+    bottom: 5px;
+    right: 5px;
+    z-index: 1;
+}

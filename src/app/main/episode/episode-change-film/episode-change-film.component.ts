@@ -33,9 +33,7 @@ export class EpisodeChangeFilmComponent extends EmbeddedDataTableAccessorService
     this.isSelectedFilm = false
   }
 
-  ngOnInit() {
-    console.log(this.isSelectedFilm)
-  }
+  ngOnInit() {}
 
   list(params: { skip?: number; take?: number; query?: string; }): Observable<EntityList<Film>> {
     return this.filmService.list(merge(params))

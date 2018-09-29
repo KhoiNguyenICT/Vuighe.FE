@@ -3,7 +3,7 @@ import { DataTableComponent } from 'app/core/base/data-table/data-table.componen
 import { EmbeddedDataTableAccessorService } from 'app/core/base/data-table/data-table-accessor.service'
 import { FilmService } from 'app/core/services/film.service'
 import { Component, OnInit, ViewChild, forwardRef } from '@angular/core'
-import { FileType, BaseFile, EntityList, Category, CategoryFilm } from 'types'
+import { FileType, EntityList, Category, CategoryFilm, Asset } from 'types'
 import { FormGroup, FormBuilder } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr'
 import { CategoryService } from 'app/core/services/category.service'
@@ -28,6 +28,7 @@ export class FilmCreateComponent extends EmbeddedDataTableAccessorService implem
   categories: Category[] = [] as Category[]
   categoryFilms: CategoryFilm[] = [] as CategoryFilm[]
   filmId: string
+  thumbnail: Asset
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,7 +50,7 @@ export class FilmCreateComponent extends EmbeddedDataTableAccessorService implem
   }
 
   onSubmit() {
-
+    this.form.patchValue({ 'thumbnailId': this.thumbnail.id })
     this.categoryFilms = []
     this.filmId = v4()
 
@@ -63,6 +64,7 @@ export class FilmCreateComponent extends EmbeddedDataTableAccessorService implem
 
     const data = { ...this.form.value, categoryFilms: this.categoryFilms }
     const success = res => {
+      this.router.navigate(['/film/film-list'])
       this.toastr.success('Film saved successfully')
     }
     const error = res => {
@@ -88,15 +90,16 @@ export class FilmCreateComponent extends EmbeddedDataTableAccessorService implem
     console.log(this.categories)
   }
 
-  onSelectAsset(asset: BaseFile) {
-
+  onSelectAsset(asset: Asset) {
+    this.thumbnail = asset
   }
 
   private buildForm() {
     this.form = this.formBuilder.group({
       title: undefined,
       description: undefined,
-      content: undefined
+      content: undefined,
+      thumbnailId: undefined
     })
   }
 
