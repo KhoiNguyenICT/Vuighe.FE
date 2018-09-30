@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-xl-9 mx-auto">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <h5 class="form-header">General Settings</h5>
+          <div class="form-desc"></div>
+          <div class="form-group">
+            <label for="film-name">Site Title</label>
+            <input type="text" class="form-control" formControlName="siteTitle">
+          </div>
+          <div class="form-group">
+            <label for="film-name">Tag Line</label>
+            <input type="text" class="form-control" formControlName="tagLine">
+          </div>
+          <div class="form-group row">
+            <div class="col-3">
+              <label for="film-name">Favicon</label>
+              <div (click)="selectFavicon.open(fileType.image)">
+                <app-select-image [image]="favicon"></app-select-image>
+              </div>
+            </div>
+            <div class="col-3">
+              <label for="film-name">Logo</label>
+              <div (click)="selectLogo.open(fileType.image)">
+                <app-select-image [image]="logo"></app-select-image>
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="film-name">Thumbnail</label>
+              <div (click)="selectThumbnail.open(fileType.image)">
+                <app-select-image [image]="thumbnail"></app-select-image>
+              </div>
+            </div>
+          </div>
+          <div class="form-buttons-w text-right">
+            <button class="btn btn-secondary" type="button">Cancel</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-preview-assets-storage #selectFavicon (selected)="onSelectFavicon($event)"></app-preview-assets-storage>
+<app-preview-assets-storage #selectLogo (selected)="onSelectLogo($event)"></app-preview-assets-storage>
+<app-preview-assets-storage #selectThumbnail (selected)="onSelectThumbnail($event)"></app-preview-assets-storage>

@@ -146,6 +146,7 @@ export class PreviewAssetsStorageComponent implements OnInit {
 
   uploadFile(files) {
     this.isLoading = true
+    this.assets = []
     const success = res => {
       this.isLoading = false
       this.fetchAssets(this.collectionId)

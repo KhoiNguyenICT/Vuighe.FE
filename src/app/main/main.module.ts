@@ -1,3 +1,4 @@
+import { SettingsModule } from './settings/settings.module'
 import { EpisodeModule } from './episode/episode.module'
 import { FilmModule } from './film/film.module'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
@@ -17,7 +18,8 @@ import { CoreModule } from '../core/core.module'
     CoreModule,
     CategoryModule,
     FilmModule,
-    EpisodeModule
+    EpisodeModule,
+    SettingsModule
   ],
   declarations: [MainComponent]
 })

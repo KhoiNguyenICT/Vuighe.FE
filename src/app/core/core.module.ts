@@ -27,6 +27,7 @@ import { PreviewAssetsStorageComponent } from './base/preview-assets-storage/pre
 import { RedactorModule } from './base/redactor/redactor.module'
 import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 import { SelectImageComponent } from './base/select-image/select-image.component'
+import { ConfigurationService } from './services/configuration.service'
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { SelectImageComponent } from './base/select-image/select-image.component
     FilmService,
     AssetService,
     EpisodeService,
-    CollectionService
+    CollectionService,
+    ConfigurationService
   ]
 })
 export class CoreModule { }

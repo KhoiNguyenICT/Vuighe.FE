@@ -148,3 +148,18 @@ export interface Collection {
     title: string
     totalAsset: number
 }
+
+export interface ConfigurationValue {
+    key: string
+    value: string
+    createdDate: Date
+    updatedDate: Date
+}
+
+export interface GeneralSettings {
+    siteTitle: string,
+    tagLine: string,
+    favicon: string,
+    logo: string,
+    thumbnail: Asset
+}

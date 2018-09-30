@@ -24,6 +24,10 @@ const routes: Routes = [
             {
                 path: 'episode',
                 loadChildren: './episode/episode.module#EpisodeModule'
+            },
+            {
+                path: 'settings',
+                loadChildren: './settings/settings.module#SettingsModule'
             }
         ]
     }
