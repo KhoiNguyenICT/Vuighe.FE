@@ -72,7 +72,6 @@ export class GeneralComponent implements OnInit {
         this.form.patchValue({ 'favicon': this.favicon })
         this.form.patchValue({ 'logo': this.logo })
         this.form.patchValue({ 'thumbnail': this.thumbnail })
-        console.log(this.form.value)
       } else {
         return
       }

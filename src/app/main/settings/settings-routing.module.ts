@@ -1,3 +1,4 @@
+import { TagsComponent } from './tags/tags.component'
 import { MenuComponent } from './menu/menu.component'
 import { SettingsComponent } from './settings.component'
 import { NgModule } from '@angular/core'
@@ -16,6 +17,10 @@ const routes: Routes = [
             {
                 path: 'menu',
                 component: MenuComponent
+            },
+            {
+                path: 'tags',
+                component: TagsComponent
             }
         ]
     }

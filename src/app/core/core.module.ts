@@ -28,6 +28,8 @@ import { RedactorModule } from './base/redactor/redactor.module'
 import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 import { SelectImageComponent } from './base/select-image/select-image.component'
 import { ConfigurationService } from './services/configuration.service'
+import { DropdownSelectItemsComponent } from './base/dropdown-select-items/dropdown-select-items.component'
+import { TagService } from './services/tag.service'
 
 @NgModule({
   imports: [
@@ -56,6 +58,7 @@ import { ConfigurationService } from './services/configuration.service'
     NoResultsComponent,
     PreviewAssetsStorageComponent,
     SelectImageComponent,
+    DropdownSelectItemsComponent,
   ],
   exports: [
     UserNavComponent,
@@ -72,7 +75,9 @@ import { ConfigurationService } from './services/configuration.service'
     ConfirmationBodyDirective,
     ConfirmationComponent,
     InfiniteScrollModule,
-    SelectImageComponent
+    SelectImageComponent,
+    DropdownSelectItemsComponent,
+    LoadingComponent
   ],
   providers: [
     AuthService,
@@ -82,7 +87,8 @@ import { ConfigurationService } from './services/configuration.service'
     AssetService,
     EpisodeService,
     CollectionService,
-    ConfigurationService
+    ConfigurationService,
+    TagService
   ]
 })
 export class CoreModule { }

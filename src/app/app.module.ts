@@ -1,7 +1,7 @@
-import { AppInterceptor } from './app.interceptor'
 import { ApiConfig } from './core/services/api-config'
 import { AppComponent } from './app.component'
 import { AppGuard } from './app.guard'
+import { AppInterceptor } from './app.interceptor'
 import { AppRoutingModule } from './app-routing.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser'
@@ -14,6 +14,8 @@ import { NgModule } from '@angular/core'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { ToastManager } from './toast-manager.service'
 import { ToastrService, ToastrModule } from 'ngx-toastr'
+import { TreeModule } from 'angular-tree-component'
+import { AccordionModule } from 'ngx-bootstrap'
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ToastrService, ToastrModule } from 'ngx-toastr'
     HttpClientModule,
     AppRoutingModule,
     MainModule,
+    TreeModule.forRoot(),
+    AccordionModule.forRoot(),
     ToastrModule.forRoot({
       enableHtml: true,
       timeOut: 3000,

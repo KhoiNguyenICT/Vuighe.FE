@@ -13,8 +13,6 @@ export class AssetService extends BaseApiService<any> {
   }
 
   upload(file, collectionId) {
-    // tslint:disable-next-line:no-debugger
-    debugger
     const formData = new FormData()
     formData.append('file', file)
     return this.post(`/upload/${collectionId}`, undefined, formData)

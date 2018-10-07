@@ -28,6 +28,27 @@
                 <div class="icon-w">
                   <i class="fal fa-graduation-cap"></i>
                 </div>
+                <span>Posts</span>
+              </a>
+              <div class="sub-menu-w">
+                <div class="sub-menu-header">Posts</div>
+                <div class="sub-menu-i">
+                  <ul class="sub-menu">
+                    <li>
+                      <a [routerLink]="['/post/post-list']">Search a posts</a>
+                    </li>
+                    <li>
+                      <a [routerLink]="['/post/post-create']">Create a post</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="has-sub-menu">
+              <a class="pointer">
+                <div class="icon-w">
+                  <i class="fal fa-graduation-cap"></i>
+                </div>
                 <span>Categories</span>
               </a>
               <div class="sub-menu-w">
@@ -119,10 +140,13 @@
                 <div class="sub-menu-i">
                   <ul class="sub-menu">
                     <li>
-                      <a [routerLink]="['/settings/general']">Customize</a>
+                      <a [routerLink]="['/settings/general']">General settings</a>
                     </li>
                     <li>
-                      <a [routerLink]="['/settings/menu']">Menu</a>
+                      <a [routerLink]="['/settings/menu']">Manage menu</a>
+                    </li>
+                    <li>
+                      <a [routerLink]="['/settings/tags']">Manage tags</a>
                     </li>
                   </ul>
                 </div>

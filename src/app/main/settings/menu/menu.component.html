@@ -1,1 +1,131 @@
 <app-page-title [PageTitle]="PageTitle"></app-page-title>
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div class="row">
+  <div class="col-sm-6 mx-auto">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <div class="form-header">
+          <h6>Select an element to add to the menu</h6>
+        </div>
+        <div class="form-desc"></div>
+        <app-dropdown-select-items>
+          <thead class="d-flex">
+            Categories
+            <div class="float-right dropdown-select-control">
+              <button class="btn btn-sm btn-primary" (click)="onToggleDropdownSelectItem('Categories')">
+                <i [ngClass]="isToggle.isToggleCategories ? 'fas fa-caret-up' : 'fas fa-caret-down' "></i>
+              </button>
+            </div>
+          </thead>
+          <tbody class="w-100" *ngIf="isToggle.isToggleCategories">
+            <app-category-menu-item (sendCategoryId)="onSelectedItemCollumnRight($event)"></app-category-menu-item>
+          </tbody>
+        </app-dropdown-select-items>
+        <app-dropdown-select-items>
+          <thead class="d-flex">
+            Pages
+            <div class="float-right dropdown-select-control">
+              <button class="btn btn-sm btn-primary" (click)="onToggleDropdownSelectItem('Pages')">
+                <i [ngClass]="isToggle.isTogglePages ? 'fas fa-caret-up' : 'fas fa-caret-down' "></i>
+              </button>
+            </div>
+          </thead>
+        </app-dropdown-select-items>
+        <app-dropdown-select-items>
+          <thead class="d-flex">
+            Films
+            <div class="float-right dropdown-select-control">
+              <button class="btn btn-sm btn-primary" (click)="onToggleDropdownSelectItem('Films')">
+                <i [ngClass]="isToggle.isToggleFilms ? 'fas fa-caret-up' : 'fas fa-caret-down' "></i>
+              </button>
+            </div>
+          </thead>
+          <tbody class="w-100" *ngIf="isToggle.isToggleFilms">
+            <app-film-menu-item></app-film-menu-item>
+          </tbody>
+        </app-dropdown-select-items>
+        <app-dropdown-select-items>
+          <thead class="d-flex">
+            Episodes
+            <div class="float-right dropdown-select-control">
+              <button class="btn btn-sm btn-primary" (click)="onToggleDropdownSelectItem('Episodes')">
+                <i [ngClass]="isToggle.isToggleEpisodes ? 'fas fa-caret-up' : 'fas fa-caret-down' "></i>
+              </button>
+            </div>
+          </thead>
+          <tbody class="w-100" *ngIf="isToggle.isToggleEpisodes">
+            <app-episode-menu-item></app-episode-menu-item>
+          </tbody>
+        </app-dropdown-select-items>
+        <app-dropdown-select-items>
+          <thead class="d-flex">
+            News
+            <div class="float-right dropdown-select-control">
+              <button class="btn btn-sm btn-primary" (click)="onToggleDropdownSelectItem('News')">
+                <i [ngClass]="isToggle.isToggleNews ? 'fas fa-caret-up' : 'fas fa-caret-down' "></i>
+              </button>
+            </div>
+          </thead>
+        </app-dropdown-select-items>
+        <app-dropdown-select-items>
+          <thead class="d-flex">
+            Custom Link
+            <div class="float-right dropdown-select-control">
+              <button class="btn btn-sm btn-primary" (click)="onToggleDropdownSelectItem('CustomLink')">
+                <i [ngClass]="isToggle.isToggleCustomLink ? 'fas fa-caret-up' : 'fas fa-caret-down' "></i>
+              </button>
+            </div>
+          </thead>
+          <tbody class="w-100" *ngIf="isToggle.isToggleCustomLink">
+            <app-custom-link></app-custom-link>
+          </tbody>
+        </app-dropdown-select-items>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 mx-auto">
+    <div class="element-wrapper">
+      <div class="element-box">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="input-btn-group mb-3 float-right">
+              <button class="btn btn-sm btn-white mr-2" (click)="onExpand()">
+                <i [ngClass]="isExpand ? 'far fa-toggle-on' : 'far fa-toggle-off'"></i>
+                <span>Expand</span>
+              </button>
+              <button class="btn btn-sm btn-white mr-2" (click)="onSaveMenu()">
+                <i class="fal fa-pencil"></i>
+                <span>Save</span>
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="modalConfirmDelete.open(focusedNodeData)">
+                <i class="fal fa-trash-alt"></i>
+                <span>Delete</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="form-desc"></div>
+        <div class="row vuighe-tree-view">
+          <div class="col-sm-12">
+            <div class="tree-container">
+              <tree-root #tree [nodes]="nodes" [options]="options" (moveNode)="onMoveNode($event)">
+                <ng-template #treeNodeTemplate let-node let-index="index">
+                  <i class="mr-2 far" [class.fa-folder]="node.isCollapsed" [class.fa-folder-open]="node.isExpanded && node.hasChildren"></i>
+                  <span>{{ node.data.name }}</span>
+                </ng-template>
+              </tree-root>
+              <app-no-results *ngIf="!nodes?.length && !isLoading" message='No menu found' icon="fal fa-tags"></app-no-results>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirmation #modalConfirmDelete (confirm)="onDeleteConfirmed($event)">
+  <div class="modal-content-holder">
+    <p>Are you sure you want to delete item of menu ?</p>
+  </div>
+</app-confirmation>

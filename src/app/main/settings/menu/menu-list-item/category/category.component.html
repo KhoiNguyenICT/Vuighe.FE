@@ -1,0 +1,21 @@
+<div class="menu-item ml-3 mt-3 mr-3">
+  <app-data-table class="small" #dataTable noResultsIconClass="fal fa-rocket" noResultsMessage="No sesssions available"
+    [noTopMenu]="false">
+    <thead>
+      <tr>
+        <th class="w-5">#</th>
+        <th>Name</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataTable.items; let index = index">
+        <td class="w-5">{{index+1}}</td>
+        <td>{{item.title}}</td>
+        <td class="text-center w-10">
+          <button class="btn btn-sm btn-link" (click)="onSelectCategory(item)">Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </app-data-table>
+</div>

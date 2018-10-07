@@ -83,6 +83,7 @@ export interface CategoryTag {
 }
 
 export interface Tag {
+    id: string
     name: string
     filmTags: Array<FilmTag>
     episodeTags: Array<EpisodeTag>
@@ -162,4 +163,20 @@ export interface GeneralSettings {
     favicon: string,
     logo: string,
     thumbnail: Asset
+}
+
+export interface Menu {
+    title: string
+    slug: string
+}
+
+export interface CustomLink {
+    url: string
+    linkText: string
+}
+
+export interface TreeNodeItem {
+    id: string
+    name: string
+    slug: string
 }

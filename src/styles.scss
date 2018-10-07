@@ -8,6 +8,37 @@
 @import '~assets/my-date-picker.scss';
 @import '~assets/libs/fontawesome/css/all.css';
 @import '~assets/libs/redactor/redactor.min.css';
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border: 0 none #fff;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+  border: 0 none #fff;
+  border-radius: 50px;
+}
 
 .w-5 {
   width: 5% !important;
@@ -19,6 +50,10 @@
 
 .w-15 {
   width: 15% !important;
+}
+
+.w-20 {
+  width: 20% !important;
 }
 
 .flex-1 {

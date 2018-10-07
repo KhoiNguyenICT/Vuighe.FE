@@ -1,0 +1,23 @@
+.dropdown-select-container {
+    background-color: #E5E5E6;
+    border-radius: 3px;
+}
+
+.dropdown-select-header {
+    display: block;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.8rem;
+    color: #222;
+    white-space: nowrap;
+    font-weight: 600;
+
+    position: relative;
+    display: flex;
+}
+
+.dropdown-body{
+    height: 100%;
+    margin: 2px;
+    background-color: white;
+    border-bottom: 2px solid #E5E5E6;
+}

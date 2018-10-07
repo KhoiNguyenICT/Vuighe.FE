@@ -1,0 +1,51 @@
+<app-page-title [PageTitle]="PageTitle">
+  <thead>
+    <button type="button" class="btn btn-sm btn-primary text-white" (click)="tagCreate.open()">
+      <i class="os-icon os-icon-ui-22"></i>
+      <span>Create a tag</span>
+    </button>
+  </thead>
+</app-page-title>
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="element-box col-sm-10 col-xl-8 mx-auto">
+  <app-data-table class="small" #datatableTags noResultsIconClass="fal fa-rocket" noResultsMessage="No tag result"
+    [noTopMenu]="false">
+    <thead>
+      <tr>
+        <th class="w-5"></th>
+        <th class="w-5">#</th>
+        <th>Tag name</th>
+        <th class="text-center w-20">Created Date</th>
+        <th class="text-center w-20">Updated Date</th>
+        <th class="text-center w-10"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datatableTags.items; let index = index">
+        <td>
+          <input type="checkbox">
+        </td>
+        <td class="w-5">{{index+1}}</td>
+        <td>{{item.name}}</td>
+        <td class="text-center w-20">{{item.createdDate | date:'medium'}}</td>
+        <td class="text-center w-20">{{item.updatedDate | date:'medium'}}</td>
+        <td class="text-center w-10">
+          <button class="btn btn-sm btn-link" (click)="tagUpdate.open(item.id)">
+            <i class="far fa-pencil"></i>
+          </button>
+          <button class="btn btn-link text-danger no-shadow" (click)="deleteTagConfirmation.open(item)">
+            <i class="fal fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </app-data-table>
+</div>
+
+<app-tag-update #tagCreate UpdateType="Create a tag" (submitForm)="onCreate($event)"></app-tag-update>
+<app-tag-update #tagUpdate UpdateType="Update a tag" (submitForm)="onUpdate($event)"></app-tag-update>
+<app-confirmation #deleteTagConfirmation modalTitle="Delete Tag" (confirm)="onDelete(deleteTagConfirmation.data)">
+  <div class="modal-content-holder">
+    Are you sure you want to delete tag
+  </div>
+</app-confirmation>

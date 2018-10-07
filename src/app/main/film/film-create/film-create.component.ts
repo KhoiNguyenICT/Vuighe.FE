@@ -87,7 +87,6 @@ export class FilmCreateComponent extends EmbeddedDataTableAccessorService implem
   onDeleteCategory(id: string) {
     const index = this.categories.indexOf(this.categories.find(x => x.id === id))
     this.categories.splice(index, 1)
-    console.log(this.categories)
   }
 
   onSelectAsset(asset: Asset) {
